@@ -185,7 +185,7 @@ const initialTransform = d3.zoomIdentity
     .translate(width / 2, height / 2);
 svg.call(zoom.transform, initialTransform);
 
-document.title = `Folder ${root.data.name}`;
+document.title = root.data.name;
 root.each(d => {
     d.hidden = (d.depth ** 2) * (d.children ? d.children.length : 0) > 16;
     d.baseRadius = Math.max(60 / (d.depth + 2), 8);
