@@ -1,0 +1,17 @@
+node_modules
+.git
+*.tmp
+build
+*.pyc
+dist
+.DS_Store
+*.bak
+cache
+*.swp
+coverage
+*.env
+Thumbs.db
+__pycache__
+__MACOSX__
+folder_viewer_*
+venv
