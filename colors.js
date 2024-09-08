@@ -103,13 +103,6 @@ function createModalContent() {
 // create the initial modal content
 createModalContent();
 
-// event listener for the 'C' key to open the modal
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'c' || event.key === 'C') {
-        document.getElementById('modal').style.display = 'block';
-    }
-});
-
 // close the modal when clicking outside of it
 window.onclick = function (event) {
     if (event.target === document.getElementById('modal')) {

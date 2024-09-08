@@ -174,4 +174,21 @@ window.addEventListener('resize', () => {
         .attr("height", window.innerHeight);
 });
 
+// event listener for the 'C' key to open the modal / 'O' key to show all nodes
+document.addEventListener('keydown', function (event) {
+
+    // toggle modal display to on when 'C' is pressed
+    if (event.key === 'c' || event.key === 'C') {
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    // show all nodes when 'O' is pressed
+    if (event.key === 'o' || event.key === 'O') {
+        root.descendants().forEach(node => {
+            node.hidden = false;
+        });
+        updateGraph();
+    }
+});
+
 updateGraph();
