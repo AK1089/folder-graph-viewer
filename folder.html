@@ -47,7 +47,7 @@
 
 <body>
     <div id="viewer"></div>
-    <script src="folder_viewer_data.js"></script>
+    <script src="folder_data.js"></script>
     <script>
 
         // mapping of file extensions to colours
@@ -328,7 +328,7 @@
             path.shift();
             path.unshift(rootFolderName.replace('/', ''));
             const filePath = path.join('/')
-            return filePath.replace(/^\/Users\/[^/]+/, '~');
+            return filePath.replace(/^\Users\/[^/]+/, '~');
         }
 
         // function to toggle the visibility of a folder or open a file

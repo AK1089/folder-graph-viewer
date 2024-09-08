@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IGNORE_FILE="folder_viewer_traversal_ignore.txt"
+IGNORE_FILE="ignore.txt"
 IGNORE_PATTERNS=""
 
 function load_ignore_patterns() {

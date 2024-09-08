@@ -1,0 +1,20 @@
+# this is a list of files to ignore when viewing folders.
+# use a "*" at the start or end of a line to match suffixes and prefixes.
+# these patterns are matched against the file name alone, not the full path.
+
+node_modules
+.git
+*.tmp
+build
+*.pyc
+dist
+.DS_Store
+*.bak
+cache
+*.swp
+coverage
+*.env
+Thumbs.db
+__pycache__
+__MACOSX__
+venv
