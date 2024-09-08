@@ -19,7 +19,7 @@ function ignore_file() {
     while IFS= read -r pattern; do
 
         # exact match - ignore the file
-        if [ basename = pattern ]; then
+        if [ "$basename" = "$pattern" ]; then
             return 0
         fi
         
