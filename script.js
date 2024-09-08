@@ -1,38 +1,3 @@
-// mapping of colours to groups of file extensions
-const colorForExtensions = {
-    '#000000': 'txt log NO_FILE_EXTENSION',
-    '#2E603F': 'csv xls xlsx ods numbers ppt pptx odp key doc docx pdf rtf odt tex md',
-    '#EFA9BA': 'jpg jpeg png gif bmp tiff svg psd ai eps raw webp',
-    '#CC76A1': 'mp3 wav ogg flac aac m4a wma mp4 avi mov wmv flv mkv webm',
-    '#03DD5E': 'exe dll so app bin iso dmg zip rar 7z tar gz bz2',
-    '#1EDAFF': 'py js html css java c cpp cs php rb go rs swift kt ts scala pl lua sh bat ps1 sql r m vb asm f f90 dart msc nms jsx tsx vue less scss sass htaccess wasm db sqlite mdb accdb odb git svn ini cfg conf properties env xml json yaml yml',
-    '#B59270': 'obj fbx blend stl dae 3ds dwg dxf unity unitypackage blend ma mb max uasset upk ttf otf woff woff2 eot'
-};
-
-// reconstitute the map into the other direction
-const extensionColorMap = {};
-for (const [color, extensions] of Object.entries(colorForExtensions)) {
-    extensions.split(' ').forEach(ext => {
-        extensionColorMap[ext] = color;
-    });
-}
-
-function getColor(d) {
-    // colours for folders
-    if (d.data.type === 'folder') return '#FEA82F';
-
-    // get the name and the location of the last . (immediately before the file extension)
-    const name = d.data.name;
-    const lastDotIndex = name.lastIndexOf('.');
-
-    // if there is no extension, return pure black
-    if (lastDotIndex === -1) return '#000000';
-
-    // return the file's colour, or the default color if its extension is not found
-    const extension = name.slice(lastDotIndex + 1).toLowerCase();
-    return extensionColorMap[extension] || '#5448C8';
-}
-
 // create a d3 viewer object occupying the whole window
 const width = window.innerWidth;
 const height = window.innerHeight;
