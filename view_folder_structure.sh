@@ -1,18 +1,10 @@
 #!/bin/bash
 
-# Directory where the script and template are stored
-SCRIPT_DIR="$HOME/folder_viewer"
+# directory where the script and template are stored
+SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 
-# Copy the template and ignore file to the current directory
-cp "$SCRIPT_DIR/folder_viewer_template.html" folder_viewer_main_file.html
-cp "$SCRIPT_DIR/folder_viewer_traversal_ignore.txt" folder_viewer_traversal_ignore.txt
+# generate folder structure data and save it to a temporary file
+"$SCRIPT_DIR/get_folder_structure.sh" > "$SCRIPT_DIR/folder_data.js"
 
-# Generate folder structure data
-"$SCRIPT_DIR/get_folder_structure.sh" > folder_viewer_data.js
-
-# Open the temporary HTML file in the default browser
-open folder_viewer_main_file.html
-
-# Wait for the browser to open, then remove the temporary file
-sleep 5
-rm folder_viewer_main_file.html folder_viewer_data.js folder_viewer_traversal_ignore.txt
+# open the HTML file in the default browser
+open "$SCRIPT_DIR/folder_viewer_template.html"
